@@ -12,7 +12,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const hostName = '/';
 
 app.use(express.static(__dirname + '/public'));
