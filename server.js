@@ -15,13 +15,17 @@ const app = express();
 const port = process.env.PORT || 3000;
 const hostName = '/';
 
-app.use(express.static(__dirname + '/public'));
 app.use((req, res, next) => {
-    let now = new Date().toDateString();
+    let now = new Date().toString();
     let log = `${now}: ${req.method} ${req.url}`;
-    fs.appendFile('server.log', log );
+
+    console.log(log);
+    fs.appendFile('server.log', log + '\n');
     next();
 });
+
+app.use(express.static(__dirname + '/public'));
+
 // app.use((req, res, next) => {
 //   res.render('maintenance.hbs')
 // });
