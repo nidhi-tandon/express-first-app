@@ -65,7 +65,24 @@ app.get('/projects', (req, res) => {
 
 });
 
+app.get('/users', (req, res) => {
+    res.send([
+        {
+            name: 'Andrew',
+            age: 25
+        },
+        {
+            name: 'John',
+            age: 23
+        }
+    ]);
+
+});
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`)
 });
+
+
+module.exports.app = app
 
