@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     let log = `${now}: ${req.method} ${req.url}`;
 
     console.log(log);
-    fs.appendFile('server.log', log + '\n');
+    fs.appendFileSync('server.log', log + '\n');
     next();
 });
 
